@@ -3,6 +3,7 @@ import { Request, Response } from "express";
 import { LoginDto } from "../schemas/login.schema";
 import bcrypt from "bcrypt";
 import createAccessToken from "../libs/jwt";
+import authRouter from "../routes/auth.routes";
 
 const db = new PrismaClient();
 
@@ -32,4 +33,12 @@ export const login = async (req: Request, res: Response) => {
 
   res.cookie("token", token);
   res.json(userData);
+};
+
+export const logout = (req: Request, res: Response) => {
+  res.cookie("token", "", {
+    expires: new Date(0),
+  });
+
+  res.sendStatus(200);
 };
