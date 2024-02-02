@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getUser, getUsers, postUser } from '../controllers/users.controller';
+import { deleteUser, getUser, getUsers, postUser, updatedUser } from '../controllers/users.controller';
 import validate from '../middleware/validate';
 import validateUser from '../schemas/user.schema';
 
@@ -10,5 +10,9 @@ usersRouter.get('', getUsers);
 usersRouter.get('/:id', getUser);
 
 usersRouter.post('', validate(validateUser), postUser);
+
+usersRouter.put('/:id', validate(validateUser), updatedUser);
+
+usersRouter.delete('/:id', deleteUser);
 
 export default usersRouter;
