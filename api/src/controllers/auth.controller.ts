@@ -4,6 +4,7 @@ import { LoginDto } from "../schemas/login.schema";
 import bcrypt from "bcrypt";
 import createAccessToken from "../libs/jwt";
 import authRouter from "../routes/auth.routes";
+import RequestDto from "../schemas/request.schema";
 
 const db = new PrismaClient();
 
@@ -42,3 +43,7 @@ export const logout = (req: Request, res: Response) => {
 
   res.sendStatus(200);
 };
+
+export const verify = (req: RequestDto, res: Response) => {
+  res.json(req.user);
+}
