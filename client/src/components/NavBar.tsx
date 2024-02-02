@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const NavBar = () => {
   return (
     <nav className="bg-sky-400 py-3 px-5">
@@ -20,7 +22,9 @@ export const NavBar = () => {
           Fix
         </li>
         <div className="flex gap-5 mx-5">
-          <li className="hover:text-slate-200 cursor-pointer">Register</li>
+          <Link className="hover:text-slate-200 cursor-pointer" to="/register">
+            Register
+          </Link>
           <li className="hover:text-slate-200 cursor-pointer">Login</li>
         </div>
       </ul>
