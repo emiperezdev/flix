@@ -16,7 +16,6 @@
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/jsonwebtoken": "^9.0.5",
-    "@types/node": "^20.11.16",
     "prisma": "^5.9.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
@@ -32,6 +31,7 @@
     "express-async-errors": "^3.1.1",
     "joi": "^17.12.1",
     "jsonwebtoken": "^9.0.2",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "simple-zustand-devtools": "^1.1.0"
   }
 }
