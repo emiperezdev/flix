@@ -11,7 +11,10 @@ const app: Application = express();
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(cookie());
-app.use(cors());
+app.use(cors({
+  credentials: true,
+  origin: 'http://localhost:5173'
+}));
 
 const baseURL = "/api";
 app.use(baseURL + "/users", usersRouter);

@@ -63,7 +63,7 @@ export const RegisterPage = () => {
           />
           {errors.password && <ErrorMessage error="Password is required" />}
 
-          <SubmitButton text="save" />
+          <SubmitButton text="Save" />
         </form>
       </div>
     </section>

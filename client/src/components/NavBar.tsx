@@ -1,10 +1,19 @@
 import { Link } from "react-router-dom";
 import useIsAuthState from "../states/useIsAuth";
 import useUserState from "../states/useUserState";
+import Cookies from "js-cookie";
 
 export const NavBar = () => {
   const isAuth = useIsAuthState((s) => s.isAuth);
   const user = useUserState((s) => s.user);
+  const setUser = useUserState(s => s.setUser);
+  const setAuth = useIsAuthState(s => s.setIsAuth);
+
+  const logout = () => {
+    Cookies.remove('token');
+    setAuth(false);
+    setUser(null);
+  }
 
   return (
     <nav className="bg-sky-400 py-3 px-5">
@@ -27,10 +36,11 @@ export const NavBar = () => {
         <div className="flex gap-5 mx-5">
           {isAuth ? (
             <>
-              <li>Welcome {user.name}</li>
+              <li>Welcome {user!.name}</li>
               <Link
                 className="hover:text-slate-200 cursor-pointer"
-                to="/register"
+                to="/login"
+                onClick={logout}
               >
                 Logout
               </Link>

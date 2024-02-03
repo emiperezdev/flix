@@ -21,6 +21,7 @@ const useAddUser = () => {
     onSuccess: (savedUser: UserEntity) => {
       navigate("/profile");
       setIsAuth(true);
+      setError('');
       setUser({
         id: savedUser.id,
         name: savedUser.name,

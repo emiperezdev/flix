@@ -8,8 +8,8 @@ interface User {
 }
 
 interface UserActionState {
-  user: User;
-  setUser: (user: User) => void;
+  user: User | null;
+  setUser: (user: User | null) => void;
 }
 
 const useUserState = create<UserActionState>(set => ({

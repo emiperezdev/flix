@@ -22,6 +22,7 @@ const useLogin = () => {
       setUser(savedLogin as UserEntity);
       setIsAuth(true);
       navigate("/profile");
+      setError('');
     },
 
     onError: (err) => {
