@@ -5,19 +5,25 @@ export default interface InputDto {
 }
 
 export const NameInput: InputDto = {
-  name: 'name',
-  placeholder: 'Name',
-  type: 'text',
-}
+  name: "name",
+  placeholder: "Name",
+  type: "text",
+};
+
+export const LastNameInput: InputDto = {
+  name: "last_name",
+  placeholder: "Last name",
+  type: "text",
+};
 
 export const EmailInput: InputDto = {
-  name: 'email',
-  placeholder: 'Email',
-  type: 'email',
-}
+  name: "email",
+  placeholder: "Email",
+  type: "email",
+};
 
 export const PasswordInput: InputDto = {
-  name: 'password',
-  placeholder: 'Password',
-  type: 'password',
-}
+  name: "password",
+  placeholder: "Password",
+  type: "password",
+};
