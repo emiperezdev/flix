@@ -7,7 +7,7 @@ const validateUser = (user: User) => {
     last_name: Joi.string().min(3).max(100).required(),
     email: Joi.string().email().min(13).max(50).required(),
     password: Joi.string().min(4).max(50).required(),
-    isAdmin: Joi.boolean().required(),
+    isAdmin: Joi.boolean().optional(),
   });
 
   return schema.validate(user);

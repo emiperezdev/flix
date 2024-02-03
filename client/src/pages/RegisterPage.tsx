@@ -1,4 +1,7 @@
 import { useForm } from "react-hook-form";
+import useAddUser from "../hooks/usePostUser";
+import UserEntity from "../entitites/user.entity";
+import useErrorState from "../states/useErrorState";
 
 export const RegisterPage = () => {
   const {
@@ -6,11 +9,15 @@ export const RegisterPage = () => {
     reset,
     handleSubmit,
     register,
-  } = useForm();
+  } = useForm<UserEntity>();
+
+  const addUser = useAddUser();
 
   const onSubmit = handleSubmit((data) => {
-    console.log(data);
+    addUser.mutate(data);
   });
+
+  const errorResponse = useErrorState(s => s.error);
 
   return (
     <section className="flex h-[calc(100vh-200px)] justify-center items-center drop-shadow-md mx-5">
@@ -19,6 +26,8 @@ export const RegisterPage = () => {
           <h2 className="mb-7 text-3xl sm:text-4xl text-center font-semibold leading-7 text-gray-900">
             Sign up
           </h2>
+          {errorResponse && <p className="bg-red-500 p-3 rounded-lg text-white mt-2">{errorResponse}</p>}
+
           <input
             {...register("name", { required: true })}
             className="my-2 w-full bg-slate-100 p-3 rounded-md"

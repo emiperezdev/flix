@@ -1,7 +1,7 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost/api",
+  baseURL: "http://localhost:3000/api",
 });
 
 class APIClient<T> {
@@ -17,3 +17,4 @@ class APIClient<T> {
 }
 
 export default APIClient;
+export { AxiosError };
