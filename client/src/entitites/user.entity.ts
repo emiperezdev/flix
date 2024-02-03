@@ -4,5 +4,5 @@ export default interface UserEntity {
   last_name: string;
   email: string;
   password: string;
-  isAdmin: boolean;
+  isAdmin?: boolean;
 }

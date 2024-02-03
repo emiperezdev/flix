@@ -2,6 +2,9 @@ import { useForm } from "react-hook-form";
 import useAddUser from "../hooks/usePostUser";
 import UserEntity from "../entitites/user.entity";
 import useErrorState from "../states/useErrorState";
+import { ErrorMessage } from "../components/ErrorMessage";
+import { SubmitButton } from "../components/SubmitButton";
+import { TitleForm } from "../components/TitleForm";
 
 export const RegisterPage = () => {
   const {
@@ -23,9 +26,7 @@ export const RegisterPage = () => {
     <section className="flex h-[calc(100vh-200px)] justify-center items-center drop-shadow-md mx-5">
       <div className="max-w-md sm:w-auto p-5 sm:p-7 rounded-lg border">
         <form onSubmit={onSubmit}>
-          <h2 className="mb-7 text-3xl sm:text-4xl text-center font-semibold leading-7 text-gray-900">
-            Sign up
-          </h2>
+          <TitleForm text="Sign up" />
           {errorResponse && <p className="bg-red-500 p-3 rounded-lg text-white mt-2">{errorResponse}</p>}
 
           <input
@@ -34,7 +35,7 @@ export const RegisterPage = () => {
             type="text"
             placeholder="Name"
           />
-          {errors.name && <p className="text-red-600 mb-2">Name is required</p>}
+          {errors.name && <ErrorMessage error="Name is required" />}
 
           <input
             {...register("last_name", { required: true })}
@@ -43,7 +44,7 @@ export const RegisterPage = () => {
             placeholder="Last name"
           />
           {errors.last_name && (
-            <p className="text-red-600 mb-2">Last name is required</p>
+            <ErrorMessage error="Last name is required" />
           )}
 
           <input
@@ -52,7 +53,7 @@ export const RegisterPage = () => {
             type="email"
             placeholder="Email"
           />
-          {errors.email && <p className="text-red-600 mb-2">Email is required</p>}
+          {errors.email && <ErrorMessage error="Email is required" />}
 
           <input
             {...register("password", { required: true })}
@@ -60,16 +61,9 @@ export const RegisterPage = () => {
             type="password"
             placeholder="Password"
           />
-          {errors.password && <p className="text-red-600 mb-2">Password is required</p>}
+          {errors.password && <ErrorMessage error="Password is required" />}
 
-          <div className="flex justify-center">
-            <button
-              type="submit"
-              className="bg-sky-400 text-white border p-2 px-6 mt-3 rounded-lg hover:bg-sky-500"
-            >
-              Save
-            </button>
-          </div>
+          <SubmitButton text="save" />
         </form>
       </div>
     </section>

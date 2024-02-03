@@ -43,7 +43,7 @@ export const NavBar = () => {
               >
                 Register
               </Link>
-              <li className="hover:text-slate-200 cursor-pointer">Login</li>
+              <Link  to='/login' className="hover:text-slate-200 cursor-pointer">Login</Link>
             </>
           )}
         </div>

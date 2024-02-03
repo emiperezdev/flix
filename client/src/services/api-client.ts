@@ -17,4 +17,4 @@ class APIClient<T> {
 }
 
 export default APIClient;
-export { AxiosError };
+export { AxiosError, axiosInstance };
