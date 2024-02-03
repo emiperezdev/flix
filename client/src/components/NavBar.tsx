@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export const NavBar = () => {
   return (
     <nav className="bg-sky-400 py-3 px-5">
-      <ul className="flex text-white text-xl justify-between">
+      <ul className="flex text-white sm:text-xl text-lg justify-between">
         <li className="flex cursor-pointer">
           <div className="">
             <svg
